@@ -1,0 +1,13 @@
+.container {
+  background-color: red;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form {
+  background-color: blanchedalmond;
+}
+
+.form-btn {
+  background-color: blueviolet;
+}

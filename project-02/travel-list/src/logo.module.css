@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+
+.heading {
+  background-color: sienna;
+}
+
+.logo {
+  color: #661212;
+  font-size: 55px;
+  font-family: "monoton";
+  word-spacing: 30px;
+  letter-spacing: -5px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+
+.logo::before {
+  content: "🌴";
+  font-size: 60px;
+  align-self: flex-end;
+}
+
+.logo::after {
+  content: "💼";
+  font-size: 65px;
+}
