@@ -1,0 +1,62 @@
+.container {
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.action {
+  align-self: center;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.action > select {
+  padding: 5px;
+  background-color: blanchedalmond;
+  padding-left: 10px;
+}
+
+.clear-list {
+  padding: 5px;
+  background-color: blanchedalmond;
+}
+
+.clear-list:hover {
+  cursor: pointer;
+  filter: contrast(80%);
+}
+
+.clear-list:active {
+  translate: 0 3px;
+}
+
+.list-items {
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, auto);
+  justify-items: self-start;
+  gap: 50px;
+  list-style: none;
+}
+
+.item {
+  font-size: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.item > p {
+  white-space: nowrap;
+}
+
+.item-input {
+  transform: scale(1.4);
+}
+
+.del-btn {
+  border: none;
+  background-color: brown;
+}
