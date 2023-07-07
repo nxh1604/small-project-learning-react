@@ -26,14 +26,44 @@ body {
   align-items: center;
   flex-wrap: wrap;
   background-color: blueviolet;
+  border-radius: 20px;
+  gap: 10px;
 }
 
-.header-bar > input {
-  padding: 5px 10px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-img {
+  margin: 0;
+  font-size: 40px;
+  width: 40px;
+}
+
+.search {
+  flex-basis: 300px;
   height: 30px;
+  padding: 5px 10px;
   border-radius: 20px;
 }
 
+.result {
+  font-size: 28px;
+  text-align: end;
+}
+
+@media screen and (max-width: 800px) {
+  .header-bar {
+    flex-direction: column;
+  }
+  .search {
+    flex-basis: 30px;
+    width: 300px;
+    padding: 5px 10px;
+  }
+}
 /* css for both list here */
 
 .main-content {
@@ -64,6 +94,41 @@ body {
   background-color: brown;
 }
 
+.info-fav-list {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.fav-list-block {
+  margin-bottom: 10px;
+}
+/* css for list films here */
+.list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* css for 1 film here */
+.movie {
+  display: flex;
+  gap: 20px;
+}
+
+.poster {
+  width: 60px;
+}
+
+.movie-title {
+  line-break: auto;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
 /* button css */
 .close-btn {
   aspect-ratio: 1;
