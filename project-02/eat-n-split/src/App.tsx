@@ -56,6 +56,7 @@ const ListFriends = () => {
       <div className='split-bill'>
         {isSplitBill && (
           <SplitBill
+            key={selectedFriend}
             friend={data}
             friendID={selectedFriend}
             updateFriend={setData}

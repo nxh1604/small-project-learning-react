@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  background-color: midnightblue;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 5px;
+}
+
+/* css for header-bar here */
+.header-bar {
+  margin: 0 5px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: blueviolet;
+}
+
+.header-bar > input {
+  padding: 5px 10px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+/* css for both list here */
+
+.main-content {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-grow: 1;
+  margin-bottom: 40px;
+}
+/* css for search list here */
+
+.search-list {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: brown;
+  flex-basis: 400px;
+}
+
+/* css for favorite list here */
+.fav-list {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 10px;
+  flex-basis: 400px;
+  background-color: brown;
+}
+
+/* button css */
+.close-btn {
+  aspect-ratio: 1;
+  border: none;
+  font-size: 14px;
+  background-color: brown;
+  font-weight: 900;
+  align-self: flex-end;
+}
