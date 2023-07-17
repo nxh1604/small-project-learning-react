@@ -1,0 +1,18 @@
+.timer {
+  margin-right: 80px;
+  align-self: flex-end;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--color-dark);
+}
+
+.timer:hover {
+  cursor: pointer;
+  filter: contrast(70%);
+  transform: translateX(2px);
+}
+
+.timer:active {
+  transform: translateX(2px) translateY(3px);
+}

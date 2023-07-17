@@ -1,0 +1,8 @@
+.error {
+  margin-top: 20px;
+  font-size: 20px;
+  background-color: var(--color-dark);
+  padding: 20px 10px;
+  border-radius: 10px;
+  padding-right: 15px;
+}
