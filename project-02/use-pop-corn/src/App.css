@@ -81,7 +81,7 @@ body {
   padding: 5px;
   border-radius: 10px;
   background-color: brown;
-  flex-basis: 400px;
+  flex-basis: 460px;
 }
 
 /* css for favorite list here */
@@ -108,6 +108,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  font-size: 15px;
 }
 /* css for 1 film here */
 .movie {
@@ -116,7 +117,9 @@ body {
 }
 
 .poster {
-  width: 60px;
+  display: inline-block;
+  width: 80px;
+  height: 100px;
 }
 
 .movie-title {
@@ -129,6 +132,14 @@ body {
   justify-content: center;
   gap: 10px;
 }
+
+/* Css for 1 fav film */
+.fav-film {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* button css */
 .close-btn {
   aspect-ratio: 1;
