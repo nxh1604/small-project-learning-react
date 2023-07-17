@@ -1,0 +1,11 @@
+.status-bar {
+  display: grid;
+  width: 500px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  font-size: 20px;
+}
+
+.question {
+  justify-self: flex-end;
+}

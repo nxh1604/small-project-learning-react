@@ -1,0 +1,47 @@
+.options {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.options > h1 {
+  font-size: 28px;
+  text-align: center;
+}
+.option-btn {
+  width: 500px;
+  flex-basis: 40px;
+  border-radius: 30px;
+  padding: 15px;
+  border: 2px solid brown;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.hover:hover {
+  cursor: pointer;
+  transform: translatex(20px);
+}
+
+.right {
+  background-color: var(--color-theme);
+}
+
+.answered {
+  background-color: green;
+  transform: translatex(20px);
+}
+
+.not-choice {
+  background-color: var(--color-accent);
+}
+
+.wrong {
+  background-color: tomato;
+  transform: translatex(20px);
+}
+
+.option-btn:disabled {
+  cursor: unset;
+}

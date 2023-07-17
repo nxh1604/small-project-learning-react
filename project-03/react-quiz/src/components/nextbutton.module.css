@@ -1,0 +1,18 @@
+.next-btn {
+  margin-right: 80px;
+  align-self: flex-end;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--color-dark);
+}
+
+.next-btn:hover {
+  cursor: pointer;
+  filter: contrast(70%);
+  transform: translateX(2px);
+}
+
+.next-btn:active {
+  transform: translateX(2px) translateY(3px);
+}
