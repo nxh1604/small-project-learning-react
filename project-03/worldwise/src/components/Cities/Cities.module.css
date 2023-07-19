@@ -1,0 +1,15 @@
+.cities {
+  width: 100%;
+  flex-grow: 1;
+  list-style: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.cities::-webkit-scrollbar {
+  width: 0;
+}
