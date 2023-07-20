@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
+import { PostProvider, PostContext } from "./Context";
 
 function createRandomPost() {
   return {
@@ -9,25 +10,9 @@ function createRandomPost() {
 }
 
 function App() {
-  const [posts, setPosts] = useState(() => Array.from({ length: 30 }, () => createRandomPost()));
-  const [searchQuery, setSearchQuery] = useState("");
   const [isFakeDark, setIsFakeDark] = useState(false);
 
   // Derived state. These are the posts that will actually be displayed
-  const searchedPosts =
-    searchQuery.length > 0
-      ? posts.filter((post) =>
-          `${post.title} ${post.body}`.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-      : posts;
-
-  function handleAddPost(post) {
-    setPosts((posts) => [post, ...posts]);
-  }
-
-  function handleClearPosts() {
-    setPosts([]);
-  }
 
   // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
   useEffect(
@@ -44,36 +29,36 @@ function App() {
         className='btn-fake-dark-mode'>
         {isFakeDark ? "☀️" : "🌙"}
       </button>
-
-      <Header
-        posts={searchedPosts}
-        onClearPosts={handleClearPosts}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-      />
-      <Main posts={searchedPosts} onAddPost={handleAddPost} />
-      <Archive onAddPost={handleAddPost} />
-      <Footer />
+      <PostProvider>
+        <Header />
+        <Main />
+        <Archive />
+        <Footer />
+      </PostProvider>
     </section>
   );
 }
 
-function Header({ posts, onClearPosts, searchQuery, setSearchQuery }) {
+function Header() {
+  const context = useContext(PostContext);
+  const { handleClearPosts } = context;
   return (
     <header>
       <h1>
         <span>⚛️</span>The Atomic Blog
       </h1>
       <div>
-        <Results posts={posts} />
-        <SearchPosts searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <button onClick={onClearPosts}>Clear posts</button>
+        <Results />
+        <SearchPosts />
+        <button onClick={handleClearPosts}>Clear posts</button>
       </div>
     </header>
   );
 }
 
-function SearchPosts({ searchQuery, setSearchQuery }) {
+function SearchPosts() {
+  const context = useContext(PostContext);
+  const { searchQuery, setSearchQuery } = context;
   return (
     <input
       value={searchQuery}
@@ -83,35 +68,38 @@ function SearchPosts({ searchQuery, setSearchQuery }) {
   );
 }
 
-function Results({ posts }) {
-  return <p>🚀 {posts.length} atomic posts found</p>;
+function Results() {
+  const context = useContext(PostContext);
+  const { post } = context;
+  return <p>🚀 {post.length} atomic posts found</p>;
 }
 
-function Main({ posts, onAddPost }) {
+function Main() {
   return (
     <main>
-      <FormAddPost onAddPost={onAddPost} />
-      <Posts posts={posts} />
+      <FormAddPost />
+      <Posts />
     </main>
   );
 }
 
-function Posts({ posts }) {
+function Posts() {
   return (
     <section>
-      <List posts={posts} />
+      <List />
     </section>
   );
 }
 
-function FormAddPost({ onAddPost }) {
+function FormAddPost() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-
+  const context = useContext(PostContext);
+  const { handleAddPost } = context;
   const handleSubmit = function (e) {
     e.preventDefault();
     if (!body || !title) return;
-    onAddPost({ title, body });
+    handleAddPost({ title, body });
     setTitle("");
     setBody("");
   };
@@ -125,10 +113,12 @@ function FormAddPost({ onAddPost }) {
   );
 }
 
-function List({ posts }) {
+function List() {
+  const context = useContext(PostContext);
+  const { searchedPosts } = context;
   return (
     <ul>
-      {posts.map((post, i) => (
+      {searchedPosts.map((post, i) => (
         <li key={i}>
           <h3>{post.title}</h3>
           <p>{post.body}</p>
