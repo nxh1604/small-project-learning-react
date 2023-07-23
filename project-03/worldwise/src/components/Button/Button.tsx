@@ -1,8 +1,15 @@
 import styles from "./Button.module.css";
 
-const Button = ({ children, type, onClick }): JSX.Element => {
+const Button = ({
+  buttonType = "button",
+  children,
+  type,
+  onClick = (e) => {
+    return;
+  },
+}): JSX.Element => {
   return (
-    <button className={`${styles.btn} ${styles[type]}`} onClick={onClick}>
+    <button type={buttonType} className={`${styles.btn} ${styles[type]}`} onClick={onClick}>
       {children}
     </button>
   );
