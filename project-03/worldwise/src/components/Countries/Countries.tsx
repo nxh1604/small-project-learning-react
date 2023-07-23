@@ -1,16 +1,18 @@
-import CityItem from "../CityItem/CityItem";
+import { useCitiesContext } from "../../../contexts/CitiesContext";
 import CountryItem from "../CountryItem/CountryItem";
 import Loading from "../Loading/Loading";
 import Message from "../Message/Message";
 
 import styles from "./Countries.module.css";
-const Countries = ({ cities, loading }): JSX.Element => {
-  if (loading) return <Loading />;
+const Countries = (): JSX.Element => {
+  const { isloading, cities } = useCitiesContext();
 
-  if (!cities.length) {
+  if (isloading) return <Loading />;
+
+  if (!cities?.length) {
     return <Message message={"Add your first city by clicking on a city in the map"} />;
   }
-  const countries = cities.reduce((arr, city) => {
+  const countries = cities?.reduce((arr, city) => {
     if (arr.map((el) => el.country).includes(city.country)) {
       return [...arr];
     }

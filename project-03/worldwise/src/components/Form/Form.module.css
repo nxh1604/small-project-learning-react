@@ -39,6 +39,7 @@
 }
 
 :global(.react-datepicker) {
-  font-family: inherit;
-  font-size: 1.2rem;
+  font-family: inherit !important;
+  font-size: 1.2rem !important;
+  width: 100%;
 }

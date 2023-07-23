@@ -31,13 +31,15 @@ const Login = (): JSX.Element => {
           <input
             placeholder='Password...'
             id='password'
-            type='text'
+            type='password'
             value={inputPW}
             onChange={(e) => setInputPW(e.target.value)}
           />
         </div>
         <div>
-          <Button type={"primary"}>Log in</Button>
+          <Button buttonType='submit' type={"primary"}>
+            Log in
+          </Button>
         </div>
       </form>
     </main>
