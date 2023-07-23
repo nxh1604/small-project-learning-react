@@ -2,7 +2,7 @@
   width: 100%;
   flex-grow: 1;
   list-style: none;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 
   display: flex;

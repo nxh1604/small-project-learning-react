@@ -11,6 +11,30 @@
         "lng": "108.1704625"
       },
       "id": 1
+    },
+    {
+      "cityName": "Tra Bong",
+      "country": "Viet Nam",
+      "emoji": "VN",
+      "date": "2023-07-23T11:07:51.577Z",
+      "notes": "",
+      "position": {
+        "lat": "15.185689619218017",
+        "lng": "108.36782093791447"
+      },
+      "id": 2
+    },
+    {
+      "cityName": "Tuyen Hoa",
+      "country": "Viet Nam",
+      "emoji": "VN",
+      "date": "2023-07-23T11:09:49.291Z",
+      "notes": "",
+      "position": {
+        "lat": "17.889350322459297",
+        "lng": "106.25427246093751"
+      },
+      "id": 3
     }
   ]
 }

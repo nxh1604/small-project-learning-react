@@ -73,7 +73,7 @@ const Map = (): JSX.Element => {
 const ChangeMapPosition = ({ usingUserLocation, mapPosition }) => {
   const map = useMap();
   if (!usingUserLocation) {
-    map.flyTo(mapPosition);
+    map.flyTo(mapPosition, 10);
   } else {
     map.setView(mapPosition);
   }

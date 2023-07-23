@@ -1,21 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Login.module.css";
 import PageNav from "../components/PageNav";
 import Button from "../components/Button/Button";
+import { useAuth } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 const Login = (): JSX.Element => {
-  const [inputEmail, setInputEmail] = useState("");
-  const [inputPW, setInputPW] = useState("");
+  const [inputEmail, setInputEmail] = useState("jack@example.com");
+  const [inputPW, setInputPW] = useState("qwerty");
+
+  const { login, isAuthenicate } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenicate) {
+      navigate("/app", { replace: true });
+    }
+  }, [isAuthenicate, navigate]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!inputEmail && !inputPW) return;
+    login(inputEmail, inputPW);
+  };
+
   return (
     <main className={styles["login"]}>
       <PageNav />
-      <form
-        autoComplete='off'
-        className={styles["form"]}
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(inputEmail);
-          console.log(inputPW);
-        }}>
+      <form autoComplete='off' className={styles["form"]} onSubmit={handleSubmit}>
         <div className={styles.row}>
           <label htmlFor='email'>Email</label>
           <input
