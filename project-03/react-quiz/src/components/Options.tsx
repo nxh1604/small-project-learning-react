@@ -1,6 +1,9 @@
+import { useQuiz } from "../context/QuizContext";
 import styles from "./options.module.css";
 
-const Options = ({ question, dispatch, answer }): JSX.Element => {
+const Options = (): JSX.Element => {
+  const { curQues, dispatch, answer }: any = useQuiz();
+  const question = curQues;
   const answered = answer !== null;
   return (
     <div className={styles[`options`]}>

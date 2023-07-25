@@ -23,7 +23,7 @@ function Form(): JSX.Element {
   const [notes, setNotes] = useState<string>("");
   const [isLoadingClickPosition, setIsLoadingClickPosition] = useState(false);
   const [errorClickPosition, setErrorClickPosition] = useState("");
-  const [emoji, setEmoji] = useState(null);
+  const [emoji, setEmoji] = useState("");
 
   const { isLoading: isLoadingCreateNewCity, createNewCity } = useCitiesContext();
   const [lat, lng] = useUrlLocation();
@@ -64,8 +64,8 @@ function Form(): JSX.Element {
       date,
       notes,
       position: {
-        lat,
-        lng,
+        lat: Number(lat),
+        lng: Number(lng),
       },
     };
 

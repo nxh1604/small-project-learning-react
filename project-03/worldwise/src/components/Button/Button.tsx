@@ -4,12 +4,15 @@ const Button = ({
   buttonType = "button",
   children,
   type,
-  onClick = (e) => {
-    return;
-  },
+  onClick = () => undefined,
+}: {
+  buttonType?: "button" | "submit" | "reset" | undefined;
+  type?: string | undefined;
+  onClick?: (e: any) => void;
+  children?: React.ReactNode;
 }): JSX.Element => {
   return (
-    <button type={buttonType} className={`${styles.btn} ${styles[type]}`} onClick={onClick}>
+    <button type={buttonType} className={`${styles.btn} ${styles[`${type}`]}`} onClick={onClick}>
       {children}
     </button>
   );

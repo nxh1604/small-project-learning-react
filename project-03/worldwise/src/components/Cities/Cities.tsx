@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import CityItem from "../CityItem/CityItem";
 import Loading from "../Loading/Loading";
 import Message from "../Message/Message";

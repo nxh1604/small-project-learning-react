@@ -1,0 +1,9 @@
+.finished {
+  margin-top: 100px;
+  border-radius: 30px;
+  font-size: 25px;
+  color: var(--color-medium);
+  padding: 30px;
+  background: var(--color-theme);
+  text-align: center;
+}

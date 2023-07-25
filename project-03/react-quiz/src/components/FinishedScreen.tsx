@@ -1,6 +1,9 @@
+import { useQuiz } from "../context/QuizContext";
 import styles from "./finishedscreen.module.css";
 
-const FinishedScreen = ({ score, maxScore, highScore }): JSX.Element => {
+const FinishedScreen = (): JSX.Element => {
+  const { score, maxScore, highScore }: any = useQuiz();
+
   const percent = Math.floor((score / maxScore) * 100);
   const emoji =
     percent === 100

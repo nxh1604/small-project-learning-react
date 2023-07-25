@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from "react-leaflet";
@@ -13,7 +13,7 @@ const Map = (): JSX.Element => {
   const [mapPosition, setMapPosition] = useState<number[]>([17, 108]);
   const { isLoading: loadingGeoLocationg, position: geoLocation, getPosition } = useGeolocation();
   const [lat, lng] = useUrlLocation();
-  const navigateToUserLocation = useNavigate();
+  const navigateToUserLocation = useCallback(useNavigate(), []);
   const { cities } = useCitiesContext();
 
   const conditionUseLocate = geoLocation
@@ -27,7 +27,7 @@ const Map = (): JSX.Element => {
       setMapPosition([geoLocation.lat, geoLocation.lng]);
       navigateToUserLocation(`form?lat=${geoLocation.lat}&lng=${geoLocation.lng}`);
     }
-  }, [geoLocation]);
+  }, [geoLocation, navigateToUserLocation]);
 
   useEffect(() => {
     if (lng && lat) setMapPosition([Number(lat), Number(lng)]);
@@ -44,7 +44,11 @@ const Map = (): JSX.Element => {
           {loadingGeoLocationg ? "loading..." : "use your location"}
         </Button>
       )}
-      <MapContainer center={mapPosition} zoom={8} scrollWheelZoom={true} className={styles.map}>
+      <MapContainer
+        center={[mapPosition[0], mapPosition[1]]}
+        zoom={8}
+        scrollWheelZoom={true}
+        className={styles.map}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

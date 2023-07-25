@@ -1,6 +1,8 @@
+import { useQuiz } from "../context/QuizContext";
 import styles from "./nextbutton.module.css";
 
-const Nextbutton = ({ dispatch, answer, numQues, index }): JSX.Element => {
+const Nextbutton = (): JSX.Element => {
+  const { dispatch, answer, numQues, index }: any = useQuiz();
   return (
     <>
       {index < numQues - 1 ? (

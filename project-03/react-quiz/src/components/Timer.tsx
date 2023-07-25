@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 
 import styles from "./timer.module.css";
+import { useQuiz } from "../context/QuizContext";
 
-const Timer = ({ defaulTime, dispatch }): JSX.Element => {
+const SECS_PER_QUES = 30;
+
+const Timer = (): JSX.Element => {
+  const { numQues, dispatch }: any = useQuiz();
+  const defaulTime = numQues * SECS_PER_QUES;
   const [time, setTime] = useState(defaulTime);
   const min = Math.floor(time / 60);
   const sec = time % 60;

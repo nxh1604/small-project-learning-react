@@ -1,8 +1,13 @@
 import { useState } from "react";
 
+interface IGEOLOCATION {
+  lat: number;
+  lng: number;
+}
+
 export function useGeolocation(defaultValue = null) {
   const [isLoading, setIsLoading] = useState(false);
-  const [position, setPosition] = useState(defaultValue);
+  const [position, setPosition] = useState<null | IGEOLOCATION>(defaultValue);
   const [error, setError] = useState<string | null>(null);
 
   function getPosition() {

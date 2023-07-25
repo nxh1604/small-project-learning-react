@@ -1,40 +1,28 @@
 {
   "cities": [
     {
-      "cityName": "Da Nang",
-      "country": "Viet Nam",
-      "emoji": "VN",
-      "date": "2023-07-23T08:57:23.868Z",
+      "cityName": "Nada",
+      "country": "China",
+      "emoji": "CN",
+      "date": "2023-07-23T17:17:52.097Z",
       "notes": "",
       "position": {
-        "lat": "16.0761628",
-        "lng": "108.1704625"
+        "lat": "19.579526125676527",
+        "lng": "109.64904785156251"
       },
       "id": 1
     },
     {
-      "cityName": "Tra Bong",
+      "cityName": "Da Nang",
       "country": "Viet Nam",
       "emoji": "VN",
-      "date": "2023-07-23T11:07:51.577Z",
+      "date": "2023-07-23T17:18:05.232Z",
       "notes": "",
       "position": {
-        "lat": "15.185689619218017",
-        "lng": "108.36782093791447"
+        "lat": "16.0761677",
+        "lng": "108.1704625"
       },
       "id": 2
-    },
-    {
-      "cityName": "Tuyen Hoa",
-      "country": "Viet Nam",
-      "emoji": "VN",
-      "date": "2023-07-23T11:09:49.291Z",
-      "notes": "",
-      "position": {
-        "lat": "17.889350322459297",
-        "lng": "106.25427246093751"
-      },
-      "id": 3
     }
   ]
 }

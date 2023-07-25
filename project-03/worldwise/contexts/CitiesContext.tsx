@@ -1,9 +1,43 @@
-import { createContext, useEffect, useState, useContext, useReducer } from "react";
-import { act } from "react-dom/test-utils";
+import { createContext, useEffect, useContext, useReducer, useCallback } from "react";
 
 const BASE_URL = "http://localhost:3000";
 
-const CitiesContext = createContext();
+interface IGEOLOCATION {
+  lat: number;
+  lng: number;
+}
+
+interface ICITY {
+  cityName: string;
+  country: string;
+  emoji: string;
+  date: string | Date;
+  notes: string;
+  position: IGEOLOCATION;
+  id?: number;
+}
+
+interface ICITIESCONTEXT {
+  cities: null | Array<ICITY>;
+  currentCity: null | ICITY;
+  isLoading: boolean;
+  error: string;
+  getCurrentCity: (id: number | string | undefined) => void;
+  createNewCity: (newCity: ICITY) => void;
+  deleteCity: (id: string | number | undefined) => void;
+}
+
+// cities, isLoading, currentCity, error, getCurrentCity, createNewCity, deleteCity
+
+const CitiesContext = createContext<ICITIESCONTEXT>({
+  cities: null,
+  isLoading: false,
+  currentCity: null,
+  error: "",
+  getCurrentCity: () => undefined,
+  createNewCity: () => undefined,
+  deleteCity: () => undefined,
+});
 
 const initialState = {
   cities: null,
@@ -65,18 +99,21 @@ const CitiesProvider = ({ children }) => {
     getCites();
   }, []);
 
-  const getCurrentCity = async (id) => {
-    if (Number(id) === currentCity?.id) return;
+  const getCurrentCity = useCallback(
+    async (id) => {
+      if (id === currentCity?.id) return;
 
-    dispatch({ type: "loading" });
-    try {
-      const res = await fetch(`${BASE_URL}/cities/${id}`);
-      const data = await res.json();
-      dispatch({ type: "city/loaded", payload: data });
-    } catch {
-      dispatch({ type: "error", payload: "Failed to load current city" });
-    }
-  };
+      dispatch({ type: "loading" });
+      try {
+        const res = await fetch(`${BASE_URL}/cities/${id}`);
+        const data = await res.json();
+        dispatch({ type: "city/loaded", payload: data });
+      } catch {
+        dispatch({ type: "error", payload: "Failed to load current city" });
+      }
+    },
+    [currentCity?.id]
+  );
 
   const createNewCity = async (newCity) => {
     dispatch({ type: "loading" });

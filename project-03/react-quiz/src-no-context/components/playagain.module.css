@@ -1,0 +1,20 @@
+.play-again {
+  width: 100%;
+  color: var(--color-light);
+  font-size: 25px;
+  align-self: flex-end;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--color-dark);
+}
+
+.play-again:hover {
+  cursor: pointer;
+  filter: contrast(70%);
+  transform: translateX(2px);
+}
+
+.play-again:active {
+  transform: translateX(2px) translateY(3px);
+}

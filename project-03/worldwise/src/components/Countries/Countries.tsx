@@ -5,14 +5,15 @@ import Message from "../Message/Message";
 
 import styles from "./Countries.module.css";
 const Countries = (): JSX.Element => {
-  const { isloading, cities } = useCitiesContext();
+  const { isLoading, cities } = useCitiesContext();
 
-  if (isloading) return <Loading />;
+  if (isLoading) return <Loading />;
 
   if (!cities?.length) {
     return <Message message={"Add your first city by clicking on a city in the map"} />;
   }
-  const countries = cities?.reduce((arr, city) => {
+
+  const countries = cities?.reduce((arr: Array<any>, city) => {
     if (arr.map((el) => el.country).includes(city.country)) {
       return [...arr];
     }

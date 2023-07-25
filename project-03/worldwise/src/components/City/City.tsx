@@ -20,11 +20,14 @@ const City = (): JSX.Element => {
 
   useEffect(() => {
     getCurrentCity(id);
-  }, [id]);
+  }, [id, getCurrentCity]);
 
   if (`${currentCity?.id}` !== id) return <Loading />;
 
-  const { cityName, emoji, date, notes } = currentCity;
+  const { cityName, emoji, date, notes } = currentCity
+    ? currentCity
+    : { cityName: null, emoji: null, date: null, notes: null };
+
   const src = `https://flagsapi.com/${emoji}/shiny/64.png`;
 
   return (
